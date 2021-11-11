@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA8B8FBD273CCDC800D63413 /* FormulaTelemetryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FBC273CCDC800D63413 /* FormulaTelemetryApp.swift */; };
+		BA8B8FBF273CCDC800D63413 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FBE273CCDC800D63413 /* ContentView.swift */; };
+		BA8B8FC1273CCDCA00D63413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8B8FC0273CCDCA00D63413 /* Assets.xcassets */; };
+		BA8B8FC4273CCDCA00D63413 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8B8FC3273CCDCA00D63413 /* Preview Assets.xcassets */; };
+		BA8B8FC6273CCDCA00D63413 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FC5273CCDCA00D63413 /* Persistence.swift */; };
+		BA8B8FC9273CCDCA00D63413 /* FormulaTelemetry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FC7273CCDCA00D63413 /* FormulaTelemetry.xcdatamodeld */; };
+		BA8B8FD4273CCDCA00D63413 /* FormulaTelemetryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FD3273CCDCA00D63413 /* FormulaTelemetryTests.swift */; };
+		BA8B8FDE273CCDCA00D63413 /* FormulaTelemetryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FDD273CCDCA00D63413 /* FormulaTelemetryUITests.swift */; };
+		BA8B8FE0273CCDCA00D63413 /* FormulaTelemetryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FDF273CCDCA00D63413 /* FormulaTelemetryUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BA8B8FD0273CCDCA00D63413 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA8B8FB1273CCDC800D63413 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA8B8FB8273CCDC800D63413;
+			remoteInfo = FormulaTelemetry;
+		};
+		BA8B8FDA273CCDCA00D63413 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA8B8FB1273CCDC800D63413 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA8B8FB8273CCDC800D63413;
+			remoteInfo = FormulaTelemetry;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BA8B8FB9273CCDC800D63413 /* FormulaTelemetry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormulaTelemetry.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA8B8FBC273CCDC800D63413 /* FormulaTelemetryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaTelemetryApp.swift; sourceTree = "<group>"; };
+		BA8B8FBE273CCDC800D63413 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BA8B8FC0273CCDCA00D63413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA8B8FC3273CCDCA00D63413 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BA8B8FC5273CCDCA00D63413 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		BA8B8FC8273CCDCA00D63413 /* FormulaTelemetry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FormulaTelemetry.xcdatamodel; sourceTree = "<group>"; };
+		BA8B8FCA273CCDCA00D63413 /* FormulaTelemetry.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FormulaTelemetry.entitlements; sourceTree = "<group>"; };
+		BA8B8FCF273CCDCA00D63413 /* FormulaTelemetryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormulaTelemetryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA8B8FD3273CCDCA00D63413 /* FormulaTelemetryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaTelemetryTests.swift; sourceTree = "<group>"; };
+		BA8B8FD9273CCDCA00D63413 /* FormulaTelemetryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormulaTelemetryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA8B8FDD273CCDCA00D63413 /* FormulaTelemetryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaTelemetryUITests.swift; sourceTree = "<group>"; };
+		BA8B8FDF273CCDCA00D63413 /* FormulaTelemetryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaTelemetryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA8B8FB6273CCDC800D63413 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA8B8FCC273CCDCA00D63413 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA8B8FD6273CCDCA00D63413 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA8B8FB0273CCDC800D63413 = {
+			isa = PBXGroup;
+			children = (
+				BA8B8FBB273CCDC800D63413 /* FormulaTelemetry */,
+				BA8B8FD2273CCDCA00D63413 /* FormulaTelemetryTests */,
+				BA8B8FDC273CCDCA00D63413 /* FormulaTelemetryUITests */,
+				BA8B8FBA273CCDC800D63413 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA8B8FBA273CCDC800D63413 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA8B8FB9273CCDC800D63413 /* FormulaTelemetry.app */,
+				BA8B8FCF273CCDCA00D63413 /* FormulaTelemetryTests.xctest */,
+				BA8B8FD9273CCDCA00D63413 /* FormulaTelemetryUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA8B8FBB273CCDC800D63413 /* FormulaTelemetry */ = {
+			isa = PBXGroup;
+			children = (
+				BA8B8FBC273CCDC800D63413 /* FormulaTelemetryApp.swift */,
+				BA8B8FBE273CCDC800D63413 /* ContentView.swift */,
+				BA8B8FC0273CCDCA00D63413 /* Assets.xcassets */,
+				BA8B8FC5273CCDCA00D63413 /* Persistence.swift */,
+				BA8B8FCA273CCDCA00D63413 /* FormulaTelemetry.entitlements */,
+				BA8B8FC7273CCDCA00D63413 /* FormulaTelemetry.xcdatamodeld */,
+				BA8B8FC2273CCDCA00D63413 /* Preview Content */,
+			);
+			path = FormulaTelemetry;
+			sourceTree = "<group>";
+		};
+		BA8B8FC2273CCDCA00D63413 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BA8B8FC3273CCDCA00D63413 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BA8B8FD2273CCDCA00D63413 /* FormulaTelemetryTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA8B8FD3273CCDCA00D63413 /* FormulaTelemetryTests.swift */,
+			);
+			path = FormulaTelemetryTests;
+			sourceTree = "<group>";
+		};
+		BA8B8FDC273CCDCA00D63413 /* FormulaTelemetryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BA8B8FDD273CCDCA00D63413 /* FormulaTelemetryUITests.swift */,
+				BA8B8FDF273CCDCA00D63413 /* FormulaTelemetryUITestsLaunchTests.swift */,
+			);
+			path = FormulaTelemetryUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA8B8FB8273CCDC800D63413 /* FormulaTelemetry */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA8B8FE3273CCDCA00D63413 /* Build configuration list for PBXNativeTarget "FormulaTelemetry" */;
+			buildPhases = (
+				BA8B8FB5273CCDC800D63413 /* Sources */,
+				BA8B8FB6273CCDC800D63413 /* Frameworks */,
+				BA8B8FB7273CCDC800D63413 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FormulaTelemetry;
+			productName = FormulaTelemetry;
+			productReference = BA8B8FB9273CCDC800D63413 /* FormulaTelemetry.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BA8B8FCE273CCDCA00D63413 /* FormulaTelemetryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA8B8FE6273CCDCA00D63413 /* Build configuration list for PBXNativeTarget "FormulaTelemetryTests" */;
+			buildPhases = (
+				BA8B8FCB273CCDCA00D63413 /* Sources */,
+				BA8B8FCC273CCDCA00D63413 /* Frameworks */,
+				BA8B8FCD273CCDCA00D63413 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA8B8FD1273CCDCA00D63413 /* PBXTargetDependency */,
+			);
+			name = FormulaTelemetryTests;
+			productName = FormulaTelemetryTests;
+			productReference = BA8B8FCF273CCDCA00D63413 /* FormulaTelemetryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BA8B8FD8273CCDCA00D63413 /* FormulaTelemetryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA8B8FE9273CCDCA00D63413 /* Build configuration list for PBXNativeTarget "FormulaTelemetryUITests" */;
+			buildPhases = (
+				BA8B8FD5273CCDCA00D63413 /* Sources */,
+				BA8B8FD6273CCDCA00D63413 /* Frameworks */,
+				BA8B8FD7273CCDCA00D63413 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA8B8FDB273CCDCA00D63413 /* PBXTargetDependency */,
+			);
+			name = FormulaTelemetryUITests;
+			productName = FormulaTelemetryUITests;
+			productReference = BA8B8FD9273CCDCA00D63413 /* FormulaTelemetryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA8B8FB1273CCDC800D63413 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					BA8B8FB8273CCDC800D63413 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					BA8B8FCE273CCDCA00D63413 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = BA8B8FB8273CCDC800D63413;
+					};
+					BA8B8FD8273CCDCA00D63413 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = BA8B8FB8273CCDC800D63413;
+					};
+				};
+			};
+			buildConfigurationList = BA8B8FB4273CCDC800D63413 /* Build configuration list for PBXProject "FormulaTelemetry" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BA8B8FB0273CCDC800D63413;
+			productRefGroup = BA8B8FBA273CCDC800D63413 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA8B8FB8273CCDC800D63413 /* FormulaTelemetry */,
+				BA8B8FCE273CCDCA00D63413 /* FormulaTelemetryTests */,
+				BA8B8FD8273CCDCA00D63413 /* FormulaTelemetryUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA8B8FB7273CCDC800D63413 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8B8FC4273CCDCA00D63413 /* Preview Assets.xcassets in Resources */,
+				BA8B8FC1273CCDCA00D63413 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA8B8FCD273CCDCA00D63413 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA8B8FD7273CCDCA00D63413 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA8B8FB5273CCDC800D63413 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8B8FC6273CCDCA00D63413 /* Persistence.swift in Sources */,
+				BA8B8FBF273CCDC800D63413 /* ContentView.swift in Sources */,
+				BA8B8FC9273CCDCA00D63413 /* FormulaTelemetry.xcdatamodeld in Sources */,
+				BA8B8FBD273CCDC800D63413 /* FormulaTelemetryApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA8B8FCB273CCDCA00D63413 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8B8FD4273CCDCA00D63413 /* FormulaTelemetryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA8B8FD5273CCDCA00D63413 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8B8FDE273CCDCA00D63413 /* FormulaTelemetryUITests.swift in Sources */,
+				BA8B8FE0273CCDCA00D63413 /* FormulaTelemetryUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BA8B8FD1273CCDCA00D63413 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA8B8FB8273CCDC800D63413 /* FormulaTelemetry */;
+			targetProxy = BA8B8FD0273CCDCA00D63413 /* PBXContainerItemProxy */;
+		};
+		BA8B8FDB273CCDCA00D63413 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA8B8FB8273CCDC800D63413 /* FormulaTelemetry */;
+			targetProxy = BA8B8FDA273CCDCA00D63413 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BA8B8FE1273CCDCA00D63413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BA8B8FE2273CCDCA00D63413 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		BA8B8FE4273CCDCA00D63413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FormulaTelemetry/FormulaTelemetry.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FormulaTelemetry/Preview Content\"";
+				DEVELOPMENT_TEAM = 642D24FH73;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Atlas.FormulaTelemetry;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BA8B8FE5273CCDCA00D63413 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FormulaTelemetry/FormulaTelemetry.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FormulaTelemetry/Preview Content\"";
+				DEVELOPMENT_TEAM = 642D24FH73;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Atlas.FormulaTelemetry;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BA8B8FE7273CCDCA00D63413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 642D24FH73;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Atlas.FormulaTelemetryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FormulaTelemetry.app/Contents/MacOS/FormulaTelemetry";
+			};
+			name = Debug;
+		};
+		BA8B8FE8273CCDCA00D63413 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 642D24FH73;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Atlas.FormulaTelemetryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FormulaTelemetry.app/Contents/MacOS/FormulaTelemetry";
+			};
+			name = Release;
+		};
+		BA8B8FEA273CCDCA00D63413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 642D24FH73;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Atlas.FormulaTelemetryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = FormulaTelemetry;
+			};
+			name = Debug;
+		};
+		BA8B8FEB273CCDCA00D63413 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 642D24FH73;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Atlas.FormulaTelemetryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = FormulaTelemetry;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA8B8FB4273CCDC800D63413 /* Build configuration list for PBXProject "FormulaTelemetry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA8B8FE1273CCDCA00D63413 /* Debug */,
+				BA8B8FE2273CCDCA00D63413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA8B8FE3273CCDCA00D63413 /* Build configuration list for PBXNativeTarget "FormulaTelemetry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA8B8FE4273CCDCA00D63413 /* Debug */,
+				BA8B8FE5273CCDCA00D63413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA8B8FE6273CCDCA00D63413 /* Build configuration list for PBXNativeTarget "FormulaTelemetryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA8B8FE7273CCDCA00D63413 /* Debug */,
+				BA8B8FE8273CCDCA00D63413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA8B8FE9273CCDCA00D63413 /* Build configuration list for PBXNativeTarget "FormulaTelemetryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA8B8FEA273CCDCA00D63413 /* Debug */,
+				BA8B8FEB273CCDCA00D63413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BA8B8FC7273CCDCA00D63413 /* FormulaTelemetry.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BA8B8FC8273CCDCA00D63413 /* FormulaTelemetry.xcdatamodel */,
+			);
+			currentVersion = BA8B8FC8273CCDCA00D63413 /* FormulaTelemetry.xcdatamodel */;
+			path = FormulaTelemetry.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BA8B8FB1273CCDC800D63413 /* Project object */;
+}
