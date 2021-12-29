@@ -49,7 +49,8 @@ struct ContentView: View {
             VStack {
                 Text(verbatim: "awaiting connection: \(manager.isConnected)")
                 SessionView(sessionData: manager.$sessionDataHandler.sessionData)
-                GameView(scene: GameScene(), position: manager.$motionDataHandler.position)
+                TelemetryView(telemetryData: manager.$telemetryDataHandler.lastTelemetryData)
+//                GameView(scene: GameScene(), position: manager.$motionDataHandler.position)
             }
         }.onAppear(perform: setup)
     }

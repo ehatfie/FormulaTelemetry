@@ -17,16 +17,14 @@
 		BA8B8FD4273CCDCA00D63413 /* FormulaTelemetryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FD3273CCDCA00D63413 /* FormulaTelemetryTests.swift */; };
 		BA8B8FDE273CCDCA00D63413 /* FormulaTelemetryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FDD273CCDCA00D63413 /* FormulaTelemetryUITests.swift */; };
 		BA8B8FE0273CCDCA00D63413 /* FormulaTelemetryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FDF273CCDCA00D63413 /* FormulaTelemetryUITestsLaunchTests.swift */; };
-		BA8B8FF2273CD20B00D63413 /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = BA8B8FF1273CD20B00D63413 /* NIO */; };
-		BA8B8FF4273CD20B00D63413 /* NIOConcurrencyHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = BA8B8FF3273CD20B00D63413 /* NIOConcurrencyHelpers */; };
-		BA8B8FF6273CD20B00D63413 /* NIOCore in Frameworks */ = {isa = PBXBuildFile; productRef = BA8B8FF5273CD20B00D63413 /* NIOCore */; };
-		BA8B8FF8273CD20B00D63413 /* NIOWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = BA8B8FF7273CD20B00D63413 /* NIOWebSocket */; };
-		BA8B8FFA273CD20B00D63413 /* _NIOConcurrency in Frameworks */ = {isa = PBXBuildFile; productRef = BA8B8FF9273CD20B00D63413 /* _NIOConcurrency */; };
 		BA8B8FFC273CD42F00D63413 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FFB273CD42F00D63413 /* Manager.swift */; };
 		BA8B8FFF273CDD4200D63413 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FFE273CDD4200D63413 /* Session.swift */; };
 		BA8B9001273CDEBA00D63413 /* UDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B9000273CDEBA00D63413 /* UDPClient.swift */; };
 		BA8B9003273CDF0100D63413 /* UDPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B9002273CDF0100D63413 /* UDPHandler.swift */; };
 		BA8B9006273CDFE200D63413 /* F12020TelemetryPackets in Frameworks */ = {isa = PBXBuildFile; productRef = BA8B9005273CDFE200D63413 /* F12020TelemetryPackets */; };
+		BA93E7E0277CFFD50028DB9C /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = BA93E7DF277CFFD50028DB9C /* NIO */; };
+		BA93E7E5277D14B70028DB9C /* TelemetryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA93E7E4277D14B70028DB9C /* TelemetryView.swift */; };
+		BA93E7E8277D15210028DB9C /* TelemetryDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA93E7E7277D15210028DB9C /* TelemetryDataHandler.swift */; };
 		BAC617752757009D00036676 /* SessionDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC617742757009D00036676 /* SessionDataHandler.swift */; };
 		BAC617772762D26B00036676 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC617762762D26B00036676 /* SessionView.swift */; };
 		BAC6177B2762DD2C00036676 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6177A2762DD2C00036676 /* MapView.swift */; };
@@ -70,10 +68,13 @@
 		BA8B8FFE273CDD4200D63413 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		BA8B9000273CDEBA00D63413 /* UDPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPClient.swift; sourceTree = "<group>"; };
 		BA8B9002273CDF0100D63413 /* UDPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPHandler.swift; sourceTree = "<group>"; };
+		BA93E7E4277D14B70028DB9C /* TelemetryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryView.swift; sourceTree = "<group>"; };
+		BA93E7E7277D15210028DB9C /* TelemetryDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryDataHandler.swift; sourceTree = "<group>"; };
 		BAC617742757009D00036676 /* SessionDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDataHandler.swift; sourceTree = "<group>"; };
 		BAC617762762D26B00036676 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		BAC6177A2762DD2C00036676 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		BAC6177C2762E0C000036676 /* MotionDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDataHandler.swift; sourceTree = "<group>"; };
+		BACE818B277CD0C700E314DF /* F12020TelemetryPackets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = F12020TelemetryPackets; path = ../../F12020TelemetryPackets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA8B8FF6273CD20B00D63413 /* NIOCore in Frameworks */,
-				BA8B8FF8273CD20B00D63413 /* NIOWebSocket in Frameworks */,
-				BA8B8FFA273CD20B00D63413 /* _NIOConcurrency in Frameworks */,
 				BA8B9006273CDFE200D63413 /* F12020TelemetryPackets in Frameworks */,
-				BA8B8FF2273CD20B00D63413 /* NIO in Frameworks */,
-				BA8B8FF4273CD20B00D63413 /* NIOConcurrencyHelpers in Frameworks */,
+				BA93E7E0277CFFD50028DB9C /* NIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +110,7 @@
 				BA130640273F6CE900C587EF /* LapDataHandler.swift */,
 				BAC617742757009D00036676 /* SessionDataHandler.swift */,
 				BAC6177C2762E0C000036676 /* MotionDataHandler.swift */,
+				BA93E7E7277D15210028DB9C /* TelemetryDataHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -151,7 +149,6 @@
 				BA8B8FCA273CCDCA00D63413 /* FormulaTelemetry.entitlements */,
 				BA8B8FC7273CCDCA00D63413 /* FormulaTelemetry.xcdatamodeld */,
 				BA8B8FC2273CCDCA00D63413 /* Preview Content */,
-				BAC617762762D26B00036676 /* SessionView.swift */,
 			);
 			path = FormulaTelemetry;
 			sourceTree = "<group>";
@@ -185,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				BA8B8FEF273CD10C00D63413 /* F12020TelemetryPackets */,
+				BACE818B277CD0C700E314DF /* F12020TelemetryPackets */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -208,9 +206,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BA93E7E1277D147B0028DB9C /* Telemetry */ = {
+			isa = PBXGroup;
+			children = (
+				BA93E7E4277D14B70028DB9C /* TelemetryView.swift */,
+			);
+			path = Telemetry;
+			sourceTree = "<group>";
+		};
+		BA93E7E6277D14D50028DB9C /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				BAC617762762D26B00036676 /* SessionView.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 		BAC617782762DD1300036676 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BA93E7E6277D14D50028DB9C /* Session */,
+				BA93E7E1277D147B0028DB9C /* Telemetry */,
 				BAC617792762DD2000036676 /* MapViews */,
 			);
 			path = Views;
@@ -241,12 +257,8 @@
 			);
 			name = FormulaTelemetry;
 			packageProductDependencies = (
-				BA8B8FF1273CD20B00D63413 /* NIO */,
-				BA8B8FF3273CD20B00D63413 /* NIOConcurrencyHelpers */,
-				BA8B8FF5273CD20B00D63413 /* NIOCore */,
-				BA8B8FF7273CD20B00D63413 /* NIOWebSocket */,
-				BA8B8FF9273CD20B00D63413 /* _NIOConcurrency */,
 				BA8B9005273CDFE200D63413 /* F12020TelemetryPackets */,
+				BA93E7DF277CFFD50028DB9C /* NIO */,
 			);
 			productName = FormulaTelemetry;
 			productReference = BA8B8FB9273CCDC800D63413 /* FormulaTelemetry.app */;
@@ -321,7 +333,7 @@
 			);
 			mainGroup = BA8B8FB0273CCDC800D63413;
 			packageReferences = (
-				BA8B8FF0273CD20B00D63413 /* XCRemoteSwiftPackageReference "swift-nio" */,
+				BA93E7DE277CFFD50028DB9C /* XCRemoteSwiftPackageReference "swift-nio" */,
 			);
 			productRefGroup = BA8B8FBA273CCDC800D63413 /* Products */;
 			projectDirPath = "";
@@ -366,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAC617772762D26B00036676 /* SessionView.swift in Sources */,
+				BA93E7E8277D15210028DB9C /* TelemetryDataHandler.swift in Sources */,
 				BAC6177B2762DD2C00036676 /* MapView.swift in Sources */,
 				BA8B8FC6273CCDCA00D63413 /* Persistence.swift in Sources */,
 				BA8B8FBF273CCDC800D63413 /* ContentView.swift in Sources */,
@@ -375,6 +388,7 @@
 				BA8B8FC9273CCDCA00D63413 /* FormulaTelemetry.xcdatamodeld in Sources */,
 				BA8B9001273CDEBA00D63413 /* UDPClient.swift in Sources */,
 				BAC6177D2762E0C000036676 /* MotionDataHandler.swift in Sources */,
+				BA93E7E5277D14B70028DB9C /* TelemetryView.swift in Sources */,
 				BA8B8FBD273CCDC800D63413 /* FormulaTelemetryApp.swift in Sources */,
 				BA8B8FFC273CD42F00D63413 /* Manager.swift in Sources */,
 				BAC617752757009D00036676 /* SessionDataHandler.swift in Sources */,
@@ -721,7 +735,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BA8B8FF0273CD20B00D63413 /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+		BA93E7DE277CFFD50028DB9C /* XCRemoteSwiftPackageReference "swift-nio" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-nio.git";
 			requirement = {
@@ -732,34 +746,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BA8B8FF1273CD20B00D63413 /* NIO */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BA8B8FF0273CD20B00D63413 /* XCRemoteSwiftPackageReference "swift-nio" */;
-			productName = NIO;
-		};
-		BA8B8FF3273CD20B00D63413 /* NIOConcurrencyHelpers */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BA8B8FF0273CD20B00D63413 /* XCRemoteSwiftPackageReference "swift-nio" */;
-			productName = NIOConcurrencyHelpers;
-		};
-		BA8B8FF5273CD20B00D63413 /* NIOCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BA8B8FF0273CD20B00D63413 /* XCRemoteSwiftPackageReference "swift-nio" */;
-			productName = NIOCore;
-		};
-		BA8B8FF7273CD20B00D63413 /* NIOWebSocket */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BA8B8FF0273CD20B00D63413 /* XCRemoteSwiftPackageReference "swift-nio" */;
-			productName = NIOWebSocket;
-		};
-		BA8B8FF9273CD20B00D63413 /* _NIOConcurrency */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BA8B8FF0273CD20B00D63413 /* XCRemoteSwiftPackageReference "swift-nio" */;
-			productName = _NIOConcurrency;
-		};
 		BA8B9005273CDFE200D63413 /* F12020TelemetryPackets */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = F12020TelemetryPackets;
+		};
+		BA93E7DF277CFFD50028DB9C /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA93E7DE277CFFD50028DB9C /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 

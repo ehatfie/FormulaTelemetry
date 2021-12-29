@@ -38,7 +38,7 @@ class UDPHandler: ChannelInboundHandler {
         guard let header = PacketHeader(data: &byteBuffer) else { return }
         
         let packet = PacketInfo(format: header.packetFormat, version: header.packetVersion, type: header.packetId)
-        
+        print("packet type \(packet.packetType.shortDescription)")
         switch packet.packetType {
         case .LapData: lapDataPublisher.send(LapDataPacket(header: header, data: &byteBuffer))
         case .CarSetups: carSetupsPublisher.send(CarSetupPacket(header: header, data: &byteBuffer))

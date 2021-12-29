@@ -31,6 +31,7 @@ class Manager: ObservableObject {
     @ObservedObject var lapDataHandler: LapDataHandler
     @ObservedObject var sessionDataHandler: SessionDataHandler
     @ObservedObject var motionDataHandler: MotionDataHandler
+    @ObservedObject var telemetryDataHandler: TelemetryDataHandler
     
     var handler = UDPHandler()
     
@@ -70,6 +71,7 @@ class Manager: ObservableObject {
         self.lapDataHandler = LapDataHandler(handler.lapDataPublisher)
         self.sessionDataHandler = SessionDataHandler(handler.sessionDataPublisher)
         self.motionDataHandler = MotionDataHandler(handler.motionDataPublisher)
+        self.telemetryDataHandler = TelemetryDataHandler(handler.carTelemetryPublisher)
         
         handler.lapDataPublisher
             .receive(on: RunLoop.main)
@@ -80,6 +82,11 @@ class Manager: ObservableObject {
             .receive(on: RunLoop.main)
             .compactMap({$0})
             .subscribe(carSetupsSub)
+        
+        handler.carTelemetryPublisher
+            .receive(on: RunLoop.main)
+            .compactMap({$0})
+            .subscribe(carTelemetrySub)
         
         handler.carTelemetryPublisher
             .receive(on: RunLoop.main)

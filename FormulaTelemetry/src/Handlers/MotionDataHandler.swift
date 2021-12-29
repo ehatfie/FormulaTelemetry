@@ -50,7 +50,7 @@ class MotionDataHandler: ObservableObject {
             return
         }
         
-        self.position = Position(data: motionData)
-        self.motionData = motionData
+        //self.position = Position(data: motionData)
+        //self.motionData = motionData
     }
 }
