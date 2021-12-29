@@ -15,31 +15,59 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-
+    
+    
+    @ObservedObject var manager: Manager = Manager()
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                NavigationLink {
+                    VStack {
+                        Text(verbatim: "connected: \(manager.isConnected)")
                     }
+                } label: {
+                    //Text(item.timestamp!, formatter: itemFormatter)
+                    Text("item one")
                 }
-                .onDelete(perform: deleteItems)
+                NavigationLink {
+                    Text("status: \(manager.client.isConnected == true ? "connected" : "disconnected")")
+                    Text(verbatim: "Item at 2")
+                } label: {
+                    //Text(item.timestamp!, formatter: itemFormatter)
+                    Text("item two")
+                }
             }
             .toolbar {
                 ToolbarItem {
                     Button(action: addItem) {
+                        
                         Label("Add Item", systemImage: "plus")
                     }
                 }
             }
-            Text("Select an item")
-        }
+            VStack {
+                Text(verbatim: "awaiting connection: \(manager.isConnected)")
+                SessionView(sessionData: manager.$sessionDataHandler.sessionData)
+                GameView(scene: GameScene(), position: manager.$motionDataHandler.position)
+            }
+        }.onAppear(perform: setup)
+    }
+    
+    
+    private func setup() {
+        self.manager.start()
+    }
+    
+    private func getText() -> String {
+        
+        return "test"
     }
 
     private func addItem() {
+        // has to be a better way to to do this, create a new dispatch queue??
+        //self.manager.start()
+        
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
@@ -83,3 +111,17 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
+
+
+/**
+ ForEach(manager.lapDataHandler.lapDataPackets) { item in
+     NavigationLink {
+         Text("status: \(manager.client.isConnected == true ? "connected" : "disconnected")")
+         Text(verbatim: "Item at \(item.currentLapNum)")
+     } label: {
+         //Text(item.timestamp!, formatter: itemFormatter)
+         Text("item \(item.currentLapNum)")
+     }
+ }
+ .onDelete(perform: deleteItems)
+ */
