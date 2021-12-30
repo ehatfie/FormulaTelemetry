@@ -68,6 +68,14 @@ class Manager: ObservableObject {
             }
         )
         
+        let eventDataSub = Subscribers.Sink<EventDataPacket, Never>(
+            receiveCompletion: { completion in
+                print(completion)
+            }) { value in
+                
+                print("EVENT \(value)")
+            }
+        
         self.lapDataHandler = LapDataHandler(handler.lapDataPublisher)
         self.sessionDataHandler = SessionDataHandler(handler.sessionDataPublisher)
         self.motionDataHandler = MotionDataHandler(handler.motionDataPublisher)
@@ -83,15 +91,15 @@ class Manager: ObservableObject {
             .compactMap({$0})
             .subscribe(carSetupsSub)
         
-        handler.carTelemetryPublisher
-            .receive(on: RunLoop.main)
-            .compactMap({$0})
-            .subscribe(carTelemetrySub)
+//        handler.carTelemetryPublisher
+//            .receive(on: RunLoop.main)
+//            .compactMap({$0})
+//            .subscribe(carTelemetrySub)
         
-        handler.carTelemetryPublisher
+        handler.eventDataPublisher
             .receive(on: RunLoop.main)
             .compactMap({$0})
-            .subscribe(carTelemetrySub)
+            .subscribe(eventDataSub)
         
 //        handler.sessionDataPublisher
 //            .receive(on: RunLoop.main)

@@ -9,8 +9,19 @@ import Foundation
 import Combine
 import F12020TelemetryPackets
 
+/**
+ If this is going to be what tracks everything over a lap then we need to store all the packets we want here also
+ create new "Lap" objects, would this be core data?, lap object will contain all the packets that happened over that lap
+  Lap
+ - sector times
+ - total time
+ - telemetry inputs
+ - lap number
+ */
+
 class LapDataHandler: ObservableObject {
     @Published var lastLapData: LapDataInner?
+    @Published var laps = [LapSummary]()
     @Published var lapDataPackets = [LapDataInner]()
     
     private var cancellable: AnyCancellable?
@@ -32,8 +43,40 @@ class LapDataHandler: ObservableObject {
         guard let userLap =  packet.lapData.first else {
             return
         }
-        
+        checkNewLap(newLapData: userLap)
+        //print("lap data ", userLap)
         lapDataPackets.append(userLap)
         lastLapData = userLap
+    }
+    
+    func checkNewLap(newLapData: LapDataInner) {
+        guard let lastLapData = self.lastLapData else {
+            return
+        }
+        
+        if newLapData.currentLapNum > lastLapData.currentLapNum {
+            print("new lap \(newLapData)")
+        }
+        // what do we want to do if its a new lap
+        // create some sort of lap summary object
+    }
+}
+
+// should we just store the LapDataInner??
+class LapSummary {
+    let lapNumber: Int
+    let times: LapTimes
+    
+    init(data: LapDataInner) {
+        self.lapNumber = data.currentLapNum
+        self.times = LapTimes()
+    }
+}
+
+class LapTimes {
+    let lapTime: Float
+    
+    init() {
+        lapTime = 0.0
     }
 }

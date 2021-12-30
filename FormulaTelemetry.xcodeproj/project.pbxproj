@@ -25,6 +25,7 @@
 		BA93E7E0277CFFD50028DB9C /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = BA93E7DF277CFFD50028DB9C /* NIO */; };
 		BA93E7E5277D14B70028DB9C /* TelemetryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA93E7E4277D14B70028DB9C /* TelemetryView.swift */; };
 		BA93E7E8277D15210028DB9C /* TelemetryDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA93E7E7277D15210028DB9C /* TelemetryDataHandler.swift */; };
+		BA973BC7277D254700D113C3 /* LapDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA973BC6277D254700D113C3 /* LapDataView.swift */; };
 		BAC617752757009D00036676 /* SessionDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC617742757009D00036676 /* SessionDataHandler.swift */; };
 		BAC617772762D26B00036676 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC617762762D26B00036676 /* SessionView.swift */; };
 		BAC6177B2762DD2C00036676 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC6177A2762DD2C00036676 /* MapView.swift */; };
@@ -70,6 +71,7 @@
 		BA8B9002273CDF0100D63413 /* UDPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPHandler.swift; sourceTree = "<group>"; };
 		BA93E7E4277D14B70028DB9C /* TelemetryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryView.swift; sourceTree = "<group>"; };
 		BA93E7E7277D15210028DB9C /* TelemetryDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryDataHandler.swift; sourceTree = "<group>"; };
+		BA973BC6277D254700D113C3 /* LapDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapDataView.swift; sourceTree = "<group>"; };
 		BAC617742757009D00036676 /* SessionDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDataHandler.swift; sourceTree = "<group>"; };
 		BAC617762762D26B00036676 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		BAC6177A2762DD2C00036676 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -222,9 +224,18 @@
 			path = Session;
 			sourceTree = "<group>";
 		};
+		BA973BC5277D253800D113C3 /* Lap */ = {
+			isa = PBXGroup;
+			children = (
+				BA973BC6277D254700D113C3 /* LapDataView.swift */,
+			);
+			path = Lap;
+			sourceTree = "<group>";
+		};
 		BAC617782762DD1300036676 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BA973BC5277D253800D113C3 /* Lap */,
 				BA93E7E6277D14D50028DB9C /* Session */,
 				BA93E7E1277D147B0028DB9C /* Telemetry */,
 				BAC617792762DD2000036676 /* MapViews */,
@@ -391,6 +402,7 @@
 				BA93E7E5277D14B70028DB9C /* TelemetryView.swift in Sources */,
 				BA8B8FBD273CCDC800D63413 /* FormulaTelemetryApp.swift in Sources */,
 				BA8B8FFC273CD42F00D63413 /* Manager.swift in Sources */,
+				BA973BC7277D254700D113C3 /* LapDataView.swift in Sources */,
 				BAC617752757009D00036676 /* SessionDataHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

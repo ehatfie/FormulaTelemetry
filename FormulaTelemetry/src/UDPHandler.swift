@@ -18,6 +18,7 @@ import F12020TelemetryPackets
     - this would let things be done async!!
  One generic publisher that either returns the header and bytes to let something external do the processing or a generic way to return the actual packet object to be re-typed on the other side
  */
+
 class UDPHandler: ChannelInboundHandler {
     typealias InboundIn = AddressedEnvelope<ByteBuffer>
     
@@ -38,7 +39,9 @@ class UDPHandler: ChannelInboundHandler {
         guard let header = PacketHeader(data: &byteBuffer) else { return }
         
         let packet = PacketInfo(format: header.packetFormat, version: header.packetVersion, type: header.packetId)
-        print("packet type \(packet.packetType.shortDescription)")
+        //print("packet type \(packet.packetType.shortDescription)")
+        //print("header \(header)")
+        
         switch packet.packetType {
         case .LapData: lapDataPublisher.send(LapDataPacket(header: header, data: &byteBuffer))
         case .CarSetups: carSetupsPublisher.send(CarSetupPacket(header: header, data: &byteBuffer))
@@ -51,8 +54,7 @@ class UDPHandler: ChannelInboundHandler {
             print("lobby info")
         case .FinalClassification:
             print("final classification")
-        case .Participants:
-            print("participants")
+        case .Participants: return
         default:
             print("packet type \(packet.packetType.shortDescription)")
         }
