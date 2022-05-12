@@ -54,7 +54,7 @@ struct ContentView: View {
                     Text(verbatim: "awaiting connection: \(manager.isConnected)")
                     SessionView(sessionData: manager.$sessionDataHandler.sessionData)
                     TelemetryView(telemetryData: manager.$telemetryDataHandler.lastTelemetryData)
-    //                GameView(scene: GameScene(), position: manager.$motionDataHandler.position)
+//                    GameView(scene: GameScene(), position: manager.$motionDataHandler.position)
                 }.border(.green, width: 1)
             }.border(.blue, width: 1)
             

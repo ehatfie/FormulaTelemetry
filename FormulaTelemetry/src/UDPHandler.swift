@@ -58,6 +58,14 @@ class UDPHandler: ChannelInboundHandler {
         default:
             print("packet type \(packet.packetType.shortDescription)")
         }
+        
+        /**
+         Things we need to list lap results/info
+            - LapData (lap times)
+            - CarTelemetry (car inputs)
+            - CarStatus (ers info)
+            - EventData?
+         */
     }
     
     func test() {
