@@ -37,27 +37,29 @@ class TelemetryInputs {
     }
 }
 
-class TelemetryDataHandler: ObservableObject {
+class TelemetryDataHandler: TelemetryDataHandlerInterface {
     typealias DataPacket = CarTelemetryDataPacket
     
-    @Published var lastTelemetryData = CarTelemetryData()
     @Published var playerTelemetryDatas = [CarTelemetryData]()
+    @Published var lastTelemetryData: CarTelemetryData = CarTelemetryData()
     @Published var telemetryDataPackets = [CarTelemetryDataPacket]()
     
-    private var cancellable: AnyCancellable?
+    var playerTelemetryDataPublished: Published<[CarTelemetryData]> { _playerTelemetryDatas }
+    var playerTelemetryDataPublisher: Published<[CarTelemetryData]>.Publisher { $playerTelemetryDatas }
     
-    deinit {
-        cancellable?.cancel()
+    var lastTelemetryDataPublished: Published<CarTelemetryData> { _lastTelemetryData }
+    var lastTelemetryDataPublisher: Published<CarTelemetryData>.Publisher { $lastTelemetryData }
+    
+    var telemetryDataPublished: Published<[CarTelemetryDataPacket]> { _telemetryDataPackets }
+    var telemetryDataPublisher: Published<[CarTelemetryDataPacket]>.Publisher { $telemetryDataPackets }
+    
+    var cancellable: AnyCancellable?
+    
+    required init(_ pub: PassthroughSubject<CarTelemetryDataPacket?, Never>) {
+        setup(pub)
     }
     
-    init(_ pub: PassthroughSubject<DataPacket?, Never>) {
-        self.cancellable = pub.compactMap({$0})
-            .sink(receiveValue: { [weak self] in
-                self?.handleDataPacket(packet: $0)
-            })
-    }
-    
-    func handleDataPacket(packet: DataPacket) {
+    func handleDataPacket(packet: CarTelemetryDataPacket) {
         self.telemetryDataPackets.append(packet)
         
         guard let playerTelemetryData = packet.carTelemetryData.first else {
