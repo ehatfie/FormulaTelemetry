@@ -10,14 +10,14 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
+    @EnvironmentObject var manager: Manager
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
     
     
-    @ObservedObject var manager: Manager = Manager()
+    //@ObservedObject var manager: Manager = Manager()
     
     var body: some View {
         NavigationView {
@@ -78,6 +78,7 @@ struct ContentView: View {
         //self.manager.start()
         
         withAnimation {
+            
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
 

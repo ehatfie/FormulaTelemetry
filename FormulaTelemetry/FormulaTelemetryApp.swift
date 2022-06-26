@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct FormulaTelemetryApp: App {
@@ -15,6 +16,8 @@ struct FormulaTelemetryApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(Manager(persistenceController: PersistenceController1()))
+            
         }
     }
 }
