@@ -31,10 +31,14 @@ class UDPHandler: ChannelInboundHandler {
     var sessionDataPublisher = PassthroughSubject<SessionDataPacket?, Never>()
     var motionDataPublisher = PassthroughSubject<MotionDataPacket?, Never>()
     
+    var dataPublisher = PassthroughSubject<ByteBuffer, Never>()
+    
     func channelRead(context: ChannelHandlerContext, data: NIOAny) {
         let addressedEnvelope = self.unwrapInboundIn(data)
         
         var byteBuffer = addressedEnvelope.data
+        
+        self.dataPublisher.send(byteBuffer)
         
         guard let header = PacketHeader(data: &byteBuffer) else { return }
         
@@ -66,8 +70,5 @@ class UDPHandler: ChannelInboundHandler {
             - CarStatus (ers info)
             - EventData?
          */
-    }
-    
-    func test() {
     }
 }

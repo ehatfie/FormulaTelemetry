@@ -33,9 +33,18 @@ class Manager: ObservableObject {
     @ObservedObject var motionDataHandler: MotionDataHandler
     @ObservedObject var telemetryDataHandler: TelemetryDataHandler
     
+    @ObservedObject var persistenceController: PersistenceController1
+    
     var handler = UDPHandler()
     
-    init() {
+    init(persistenceController: PersistenceController1) {
+        self.persistenceController = persistenceController
+        
+        self.lapDataHandler = LapDataHandler(handler.lapDataPublisher)
+        self.sessionDataHandler = SessionDataHandler(handler.sessionDataPublisher)
+        self.motionDataHandler = MotionDataHandler(handler.motionDataPublisher)
+        self.telemetryDataHandler = TelemetryDataHandler(handler.carTelemetryPublisher)
+        
         let lapDataSub = Subscribers.Sink<LapDataPacket, Never>(
             receiveCompletion: { completion in
                 print("complete: \(completion)")
@@ -76,10 +85,27 @@ class Manager: ObservableObject {
                 print("EVENT \(value)")
             }
         
-        self.lapDataHandler = LapDataHandler(handler.lapDataPublisher)
-        self.sessionDataHandler = SessionDataHandler(handler.sessionDataPublisher)
-        self.motionDataHandler = MotionDataHandler(handler.motionDataPublisher)
-        self.telemetryDataHandler = TelemetryDataHandler(handler.carTelemetryPublisher)
+        let dataSub = Subscribers.Sink<ByteBuffer, Never>(
+            receiveCompletion: { completion in
+                print("completion")
+            }, receiveValue: { byteBuffer in
+                // here we want to save all the byte buffers we get
+                var bufferCopy = byteBuffer
+                
+                guard let byteArray = bufferCopy.readBytes(length: byteBuffer.readableBytes) else {
+                    print("couldnt unpack")
+                    return
+                }
+                
+                let data = Data(byteArray)
+                
+                self.persistenceController.addData(dataToSave: data)
+                
+                
+                //self?.persistenceController.addData(dataToSave: data)
+            })
+        
+        
         
         handler.lapDataPublisher
             .receive(on: RunLoop.main)
@@ -105,7 +131,11 @@ class Manager: ObservableObject {
 //            .receive(on: RunLoop.main)
 //            .compactMap({$0})
 //            .subscribe(sessionDataSub)
-            
+        
+        handler.dataPublisher
+            .receive(on: RunLoop.main)
+            .subscribe(dataSub)
+        
         
         client.$isConnected.assign(to: &$isConnected)
         sessionDataHandler.$trackName.assign(to: &$trackName)
