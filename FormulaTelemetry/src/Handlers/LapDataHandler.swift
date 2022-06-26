@@ -57,6 +57,8 @@ class LapDataHandler: ObservableObject {
         if newLapData.currentLapNum > lastLapData.currentLapNum {
             print("new lap \(newLapData)")
         }
+        let summary = LapSummary(data: newLapData)
+        print()
         // what do we want to do if its a new lap
         // create some sort of lap summary object
     }
@@ -69,14 +71,14 @@ class LapSummary {
     
     init(data: LapDataInner) {
         self.lapNumber = data.currentLapNum
-        self.times = LapTimes()
+        self.times = LapTimes(from: data)
     }
 }
 
 class LapTimes {
     let lapTime: Float
     
-    init() {
+    init(from data: LapDataInner) {
         lapTime = 0.0
     }
 }

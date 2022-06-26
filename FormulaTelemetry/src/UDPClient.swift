@@ -43,6 +43,7 @@ class UDPClient: ObservableObject {
             }
             
             print("Channel accepting connections on \(channel.localAddress!))")
+            
             try channel.closeFuture.wait()
             
         } catch let error {

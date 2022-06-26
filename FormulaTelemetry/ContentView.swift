@@ -46,17 +46,19 @@ struct ContentView: View {
                     }
                 }
             }
-            HStack {
-                VStack {
-                    LapDataView(source: $manager.lapDataHandler)
-                }.border(.red, width: 1)
-                VStack {
-                    Text(verbatim: "awaiting connection: \(manager.isConnected)")
-                    SessionView(sessionData: manager.$sessionDataHandler.sessionData)
-                    TelemetryView(telemetryData: manager.$telemetryDataHandler.lastTelemetryData)
-//                    GameView(scene: GameScene(), position: manager.$motionDataHandler.position)
-                }.border(.green, width: 1)
-            }.border(.blue, width: 1)
+           
+                HStack {
+                    VStack {
+                        LapDataView(source: $manager.lapDataHandler)
+                    }.border(.red, width: 1)
+                    VStack {
+                        Text(verbatim: "awaiting connection: \(manager.isConnected)")
+                        SessionView(sessionData: manager.$sessionDataHandler.sessionData)
+                        TelemetryView(telemetryData: manager.$telemetryDataHandler.lastTelemetryData)
+                    }.border(.green, width: 1)
+                }.border(.blue, width: 1)
+            
+
             
         }.onAppear(perform: setup)
     }

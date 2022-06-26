@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA130641273F6CE900C587EF /* LapDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA130640273F6CE900C587EF /* LapDataHandler.swift */; };
+		BA8A2D962868B3690059B219 /* F12020TelemetryPackets in Frameworks */ = {isa = PBXBuildFile; productRef = BA8A2D952868B3690059B219 /* F12020TelemetryPackets */; };
 		BA8B8FBD273CCDC800D63413 /* FormulaTelemetryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FBC273CCDC800D63413 /* FormulaTelemetryApp.swift */; };
 		BA8B8FBF273CCDC800D63413 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FBE273CCDC800D63413 /* ContentView.swift */; };
 		BA8B8FC1273CCDCA00D63413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8B8FC0273CCDCA00D63413 /* Assets.xcassets */; };
@@ -21,7 +22,6 @@
 		BA8B8FFF273CDD4200D63413 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FFE273CDD4200D63413 /* Session.swift */; };
 		BA8B9001273CDEBA00D63413 /* UDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B9000273CDEBA00D63413 /* UDPClient.swift */; };
 		BA8B9003273CDF0100D63413 /* UDPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B9002273CDF0100D63413 /* UDPHandler.swift */; };
-		BA8B9006273CDFE200D63413 /* F12020TelemetryPackets in Frameworks */ = {isa = PBXBuildFile; productRef = BA8B9005273CDFE200D63413 /* F12020TelemetryPackets */; };
 		BA93E7E0277CFFD50028DB9C /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = BA93E7DF277CFFD50028DB9C /* NIO */; };
 		BA93E7E5277D14B70028DB9C /* TelemetryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA93E7E4277D14B70028DB9C /* TelemetryView.swift */; };
 		BA93E7E8277D15210028DB9C /* TelemetryDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA93E7E7277D15210028DB9C /* TelemetryDataHandler.swift */; };
@@ -51,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		BA130640273F6CE900C587EF /* LapDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapDataHandler.swift; sourceTree = "<group>"; };
+		BA71E9072868B244003B9AB7 /* F12020TelemetryPackets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = F12020TelemetryPackets; path = ../../F12020TelemetryPackets; sourceTree = "<group>"; };
 		BA8B8FB9273CCDC800D63413 /* FormulaTelemetry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormulaTelemetry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8B8FBC273CCDC800D63413 /* FormulaTelemetryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaTelemetryApp.swift; sourceTree = "<group>"; };
 		BA8B8FBE273CCDC800D63413 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		BA8B8FD9273CCDCA00D63413 /* FormulaTelemetryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormulaTelemetryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8B8FDD273CCDCA00D63413 /* FormulaTelemetryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaTelemetryUITests.swift; sourceTree = "<group>"; };
 		BA8B8FDF273CCDCA00D63413 /* FormulaTelemetryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaTelemetryUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		BA8B8FEF273CD10C00D63413 /* F12020TelemetryPackets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = F12020TelemetryPackets; path = ../../F12020TelemetryPackets; sourceTree = "<group>"; };
 		BA8B8FFB273CD42F00D63413 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		BA8B8FFE273CDD4200D63413 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		BA8B9000273CDEBA00D63413 /* UDPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPClient.swift; sourceTree = "<group>"; };
@@ -76,7 +76,6 @@
 		BAC617762762D26B00036676 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		BAC6177A2762DD2C00036676 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		BAC6177C2762E0C000036676 /* MotionDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDataHandler.swift; sourceTree = "<group>"; };
-		BACE818B277CD0C700E314DF /* F12020TelemetryPackets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = F12020TelemetryPackets; path = ../../F12020TelemetryPackets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA8B9006273CDFE200D63413 /* F12020TelemetryPackets in Frameworks */,
 				BA93E7E0277CFFD50028DB9C /* NIO in Frameworks */,
+				BA8A2D962868B3690059B219 /* F12020TelemetryPackets in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,8 +182,7 @@
 		BA8B8FEC273CCFE600D63413 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				BA8B8FEF273CD10C00D63413 /* F12020TelemetryPackets */,
-				BACE818B277CD0C700E314DF /* F12020TelemetryPackets */,
+				BA71E9072868B244003B9AB7 /* F12020TelemetryPackets */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -268,8 +266,8 @@
 			);
 			name = FormulaTelemetry;
 			packageProductDependencies = (
-				BA8B9005273CDFE200D63413 /* F12020TelemetryPackets */,
 				BA93E7DF277CFFD50028DB9C /* NIO */,
+				BA8A2D952868B3690059B219 /* F12020TelemetryPackets */,
 			);
 			productName = FormulaTelemetry;
 			productReference = BA8B8FB9273CCDC800D63413 /* FormulaTelemetry.app */;
@@ -319,7 +317,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1310;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					BA8B8FB8273CCDC800D63413 = {
 						CreatedOnToolsVersion = 13.1;
@@ -561,6 +559,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FormulaTelemetry/FormulaTelemetry.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -588,6 +587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FormulaTelemetry/FormulaTelemetry.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -758,7 +758,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BA8B9005273CDFE200D63413 /* F12020TelemetryPackets */ = {
+		BA8A2D952868B3690059B219 /* F12020TelemetryPackets */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = F12020TelemetryPackets;
 		};
