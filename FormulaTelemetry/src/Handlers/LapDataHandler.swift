@@ -34,9 +34,7 @@ class LapDataHandler: ObservableObject {
     
     init(_ pub: PassthroughSubject<LapDataPacket?, Never>) {
         self.cancellable = pub.compactMap({$0})
-            .sink(receiveValue: { [weak self] in
-                self?.handleLapDataPacket(packet: $0)
-            })
+            .sink(receiveValue: handleLapDataPacket(packet:))
     }
     
     func handleLapDataPacket(packet: LapDataPacket) {
@@ -58,7 +56,8 @@ class LapDataHandler: ObservableObject {
             print("new lap \(newLapData)")
         }
         let summary = LapSummary(data: newLapData)
-        print()
+        self.laps.append(summary)
+        print("lap summary ", summary.lapNumber)
         // what do we want to do if its a new lap
         // create some sort of lap summary object
     }
@@ -79,6 +78,8 @@ class LapTimes {
     let lapTime: Float
     
     init(from data: LapDataInner) {
+        print("last lap time ", data.lastLapTime)
+        print("current lap time ", data.currentLapTime)
         lapTime = 0.0
     }
 }

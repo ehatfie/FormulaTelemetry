@@ -25,9 +25,7 @@ class SessionDataHandler: ObservableObject {
         self.cancellable = pub
             .receive(on: RunLoop.main)
             .compactMap({$0})
-            .sink(receiveValue: { [weak self] in
-                self?.handlePacket($0)
-            })
+            .sink(receiveValue: handlePacket(_:))
     }
     
     func handlePacket(_ packet: SessionDataPacket) {
