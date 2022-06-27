@@ -11,7 +11,7 @@ import CoreData
 import Combine
 
 protocol TestPersistenceControllerInterface: ObservableObject {
-    var container: NSPersistentContainer { get }
+    var container: NSPersistentContainer? { get }
     
     var savedData: [ReceivedPacket] { get }
     var savedDataPublished: Published<[ReceivedPacket]> { get }

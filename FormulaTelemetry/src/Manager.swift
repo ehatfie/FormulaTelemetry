@@ -91,7 +91,6 @@ class Manager: ObservableObject {
             }, receiveValue: { byteBuffer in
                 // here we want to save all the byte buffers we get
                 var bufferCopy = byteBuffer
-                
                 guard let byteArray = bufferCopy.readBytes(length: byteBuffer.readableBytes) else {
                     print("couldnt unpack")
                     return

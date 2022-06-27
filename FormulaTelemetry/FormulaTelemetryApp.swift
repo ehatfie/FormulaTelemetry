@@ -16,8 +16,7 @@ struct FormulaTelemetryApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(Manager(persistenceController: PersistenceController1()))
-            
+                .environmentObject(Manager(persistenceController: PersistenceController1(PersistenceController.shared.container)))
         }
     }
 }
