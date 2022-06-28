@@ -19,10 +19,15 @@ import F12020TelemetryPackets
  - lap number
  */
 
+protocol LapDataHandlerDelegate {
+    func newLap()
+}
+
 class LapDataHandler: ObservableObject {
     @Published var lastLapData: LapDataInner?
     @Published var laps = [LapSummary]()
     @Published var lapDataPackets = [LapDataInner]()
+    
     
     private var cancellable: AnyCancellable?
     
@@ -57,7 +62,7 @@ class LapDataHandler: ObservableObject {
         }
         let summary = LapSummary(data: newLapData)
         self.laps.append(summary)
-        print("lap summary ", summary.lapNumber)
+        //print("lap summary ", summary.lapNumber)
         // what do we want to do if its a new lap
         // create some sort of lap summary object
     }
@@ -78,8 +83,8 @@ class LapTimes {
     let lapTime: Float
     
     init(from data: LapDataInner) {
-        print("last lap time ", data.lastLapTime)
-        print("current lap time ", data.currentLapTime)
+        //print("last lap time ", data.lastLapTime)
+        //print("current lap time ", data.currentLapTime)
         lapTime = 0.0
     }
 }

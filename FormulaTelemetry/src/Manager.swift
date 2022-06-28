@@ -32,6 +32,7 @@ class Manager: ObservableObject {
     @ObservedObject var sessionDataHandler: SessionDataHandler
     @ObservedObject var motionDataHandler: MotionDataHandler
     @ObservedObject var telemetryDataHandler: TelemetryDataHandler
+    @ObservedObject var lapSummaryHandler: LapSummaryHandler
     
     @ObservedObject var persistenceController: PersistenceController1
     
@@ -45,6 +46,8 @@ class Manager: ObservableObject {
         self.motionDataHandler = MotionDataHandler(handler.motionDataPublisher)
         self.telemetryDataHandler = TelemetryDataHandler(handler.carTelemetryPublisher)
         
+        self.lapSummaryHandler = LapSummaryHandler(lapData: handler.lapDataPublisher, telemetryData: handler.carTelemetryPublisher)
+        
         let lapDataSub = Subscribers.Sink<LapDataPacket, Never>(
             receiveCompletion: { completion in
                 print("complete: \(completion)")
@@ -56,7 +59,7 @@ class Manager: ObservableObject {
             receiveCompletion: { completion in
                 print(completion)
             }) { value in
-                
+
                 //print(value)
             }
         
@@ -98,7 +101,7 @@ class Manager: ObservableObject {
                 
                 let data = Data(byteArray)
                 
-                self.persistenceController.addData(dataToSave: data)
+//                self.persistenceController.addData(dataToSave: data)
                 
                 
                 //self?.persistenceController.addData(dataToSave: data)
@@ -134,6 +137,7 @@ class Manager: ObservableObject {
         handler.dataPublisher
             .receive(on: RunLoop.main)
             .subscribe(dataSub)
+        
         
         
         client.$isConnected.assign(to: &$isConnected)

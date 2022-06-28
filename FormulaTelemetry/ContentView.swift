@@ -41,7 +41,6 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem {
                     Button(action: addItem) {
-                        
                         Label("Add Item", systemImage: "plus")
                     }
                 }
@@ -53,8 +52,10 @@ struct ContentView: View {
                     }.border(.red, width: 1)
                     VStack {
                         Text(verbatim: "awaiting connection: \(manager.isConnected)")
+                        
+                        
                         SessionView(sessionData: manager.$sessionDataHandler.sessionData)
-                        TelemetryView(telemetryData: manager.$telemetryDataHandler.lastTelemetryData)
+                        TelemetryView(telemetryData: manager.$telemetryDataHandler.lastTelemetryData, telemetryStuff: $manager.lapSummaryHandler)
                     }.border(.green, width: 1)
                 }.border(.blue, width: 1)
             

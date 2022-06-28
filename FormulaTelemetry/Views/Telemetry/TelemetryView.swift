@@ -37,7 +37,7 @@ struct BrakeTemps {
 // probably gonna have multiple views we use here
 struct TelemetryView: View {
     @Binding var telemetryData: CarTelemetryData
-    
+    @Binding var telemetryStuff: LapSummaryHandler
     
     var body: some View {
         VStack {
