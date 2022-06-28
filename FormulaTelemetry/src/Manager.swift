@@ -149,7 +149,7 @@ class Manager: ObservableObject {
             guard let strongSelf = self else {
                 return
             }
-            strongSelf.client.start(handler: strongSelf.handler)
+            //strongSelf.client.start(handler: strongSelf.handler)
         }
     }
     

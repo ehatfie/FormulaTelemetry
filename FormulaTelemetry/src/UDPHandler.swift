@@ -37,8 +37,10 @@ class UDPHandler: ChannelInboundHandler {
         let addressedEnvelope = self.unwrapInboundIn(data)
         
         var byteBuffer = addressedEnvelope.data
+       // DispatchQueue.main.async {
+            self.dataPublisher.send(byteBuffer)
+       // }
         
-        self.dataPublisher.send(byteBuffer)
         
         guard let header = PacketHeader(data: &byteBuffer) else { return }
         

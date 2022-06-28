@@ -23,13 +23,29 @@ struct ContentView: View {
         NavigationView {
             List {
                 NavigationLink {
-                    VStack {
-                        Text(verbatim: "connected: \(manager.isConnected)")
-                    }
+                    
+                } label: {
+                    //Text(item.timestamp!, formatter: itemFormatter)
+                    Text("Data Recording Tab")
+                }
+                
+                NavigationLink {
+                    HStack {
+                        VStack {
+                            LapDataView(source: $manager.lapDataHandler)
+                        }.border(.red, width: 1)
+                        VStack {
+                            Text(verbatim: "awaiting connection: \(manager.isConnected)")
+                            
+                            SessionView(sessionData: manager.$sessionDataHandler.sessionData)
+                            TelemetryView(telemetryData: manager.$telemetryDataHandler.lastTelemetryData, telemetryStuff: $manager.lapSummaryHandler)
+                        }.border(.green, width: 1)
+                    }.border(.blue, width: 1)
                 } label: {
                     //Text(item.timestamp!, formatter: itemFormatter)
                     Text("item one")
                 }
+                
                 NavigationLink {
                     Text("status: \(manager.client.isConnected == true ? "connected" : "disconnected")")
                     Text(verbatim: "Item at 2")
@@ -37,6 +53,8 @@ struct ContentView: View {
                     //Text(item.timestamp!, formatter: itemFormatter)
                     Text("item two")
                 }
+                
+
             }
             .toolbar {
                 ToolbarItem {
@@ -45,21 +63,9 @@ struct ContentView: View {
                     }
                 }
             }
-           
-                HStack {
-                    VStack {
-                        LapDataView(source: $manager.lapDataHandler)
-                    }.border(.red, width: 1)
-                    VStack {
-                        Text(verbatim: "awaiting connection: \(manager.isConnected)")
-                        
-                        
-                        SessionView(sessionData: manager.$sessionDataHandler.sessionData)
-                        TelemetryView(telemetryData: manager.$telemetryDataHandler.lastTelemetryData, telemetryStuff: $manager.lapSummaryHandler)
-                    }.border(.green, width: 1)
-                }.border(.blue, width: 1)
             
-
+            DefaultDataCollectionView()
+                .environmentObject(DefaultDataCollectionViewModel())
             
         }.onAppear(perform: setup)
     }

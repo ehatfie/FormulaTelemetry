@@ -8,12 +8,22 @@
 import Foundation
 import NIO
 
-class UDPClient: ObservableObject {
+protocol UDPClientInterface: ObservableObject {
+    var handler: UDPHandler? { get set }
+    var channel: Channel? { get set }
+}
+
+class UDPClient: UDPClientInterface {
     @Published var isConnected = false
     
+    var handler: UDPHandler?
+    var channel: Channel?
+    var eventLoopGroup: MultiThreadedEventLoopGroup?
+    
     func start(handler: UDPHandler) {
+        self.handler = handler
         let group = MultiThreadedEventLoopGroup(numberOfThreads: 1)
-        
+        self.eventLoopGroup = group
         let datagramBootstrap = DatagramBootstrap(group: group)
             .channelOption(ChannelOptions.socketOption(.so_reuseaddr),value: 1)
             .channelInitializer({ channel in
@@ -52,5 +62,14 @@ class UDPClient: ObservableObject {
         }
         self.isConnected = false
         print("Channel closed")
+    }
+    
+    func stop() {
+        print("UDP Client stop")
+        try? self.eventLoopGroup?.syncShutdownGracefully()
+        //let foo = self.channel?.close()
+        //try? foo?.wait()
+        self.channel = nil
+        self.isConnected = false
     }
 }
