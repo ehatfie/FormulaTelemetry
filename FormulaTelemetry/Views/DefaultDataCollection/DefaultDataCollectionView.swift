@@ -16,6 +16,8 @@ enum DefaultDataCollectionAction {
     case stopRecording
     case saveRecording
     case deleteRecording
+    case printPackets
+    case loadData
 }
 
 struct DefaultDataCollectionView: View {
@@ -31,11 +33,13 @@ struct DefaultDataCollectionView: View {
                 }, label: {
                     Text("Start Recording")
                 })
+                
                 Button(action: {
                     buttonOnPress(action: .stopRecording)
                 }, label: {
                     Text("StopRecording")
                 })
+                
                 Button(action: {
                     buttonOnPress(action: .saveRecording)
                 }, label: {
@@ -46,6 +50,19 @@ struct DefaultDataCollectionView: View {
                     buttonOnPress(action: .deleteRecording)
                 }, label: {
                     Text("Delete Recording")
+                })
+            }
+            HStack(alignment: .top, spacing: 100) {
+                Button(action: {
+                    buttonOnPress(action: .printPackets)
+                }, label: {
+                    Text("Print Packets")
+                })
+                
+                Button(action: {
+                    buttonOnPress(action: .loadData)
+                }, label: {
+                    Text("Load Data")
                 })
             }
             Text(verbatim: "\(viewModel.test)")
@@ -61,6 +78,8 @@ struct DefaultDataCollectionView: View {
         case .stopRecording: self.viewModel.stopRecording()
         case .deleteRecording: self.viewModel.deleteRecording()
         case .saveRecording: self.viewModel.saveRecording()
+        case .printPackets: self.viewModel.printPackets()
+        case .loadData: self.viewModel.loadData()
         }
     }
     

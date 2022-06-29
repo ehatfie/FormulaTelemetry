@@ -15,6 +15,7 @@ protocol DefaultDataCollectionViewModelInterface: ObservableObject {
     func stopRecording()
     func saveRecording()
     func deleteRecording()
+    func printPackets()
 }
 /*
     This should start/stop collection
@@ -63,10 +64,18 @@ class DefaultDataCollectionViewModel: DefaultDataCollectionViewModelInterface {
     func saveRecording() {
         print("Save Recording")
         //self.dataCollectionHandler.count += 1
-        self.test += 1
+        self.dataCollectionHandler.savePackets()
     }
     
     func deleteRecording() {
         print("Delete Recording")
+    }
+    
+    func printPackets() {
+        self.dataCollectionHandler.printPackets()
+    }
+    
+    func loadData() {
+        self.dataCollectionHandler.loadFromUserDefaults()
     }
 }
