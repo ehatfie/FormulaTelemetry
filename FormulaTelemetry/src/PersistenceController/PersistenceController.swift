@@ -44,11 +44,7 @@ class PersistenceController1: TestPersistenceControllerInterface {
             print("no container")
             return
         }
-        let entities = dataToSave.map ({ data in
-            let newEntity = ReceivedPacket(context: container.viewContext)
-            newEntity.data = data
-        })
-        
+
         saveData()
     }
     
@@ -89,9 +85,7 @@ class PersistenceController1: TestPersistenceControllerInterface {
     }
     
     func addData(dataToSave: Data) {
-        let newEntity = ReceivedPacket(context: container!.viewContext)
-        newEntity.data = dataToSave
-        saveData()
+        
     }
     
     func saveData() {
