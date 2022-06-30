@@ -18,6 +18,7 @@ enum DefaultDataCollectionAction {
     case deleteRecording
     case printPackets
     case loadData
+    case clearLocalData
 }
 
 struct DefaultDataCollectionView: View {
@@ -52,6 +53,7 @@ struct DefaultDataCollectionView: View {
                     Text("Delete Recording")
                 })
             }
+            
             HStack(alignment: .top, spacing: 100) {
                 Button(action: {
                     viewModel.buttonOnPress(action: .printPackets)
@@ -64,6 +66,12 @@ struct DefaultDataCollectionView: View {
                 }, label: {
                     Text("Load Data")
                 })
+                
+                Button(action: {
+                    viewModel.buttonOnPress(action: .clearLocalData)
+                }, label: {
+                    Text("Clear Local Data")
+                })
             }
             Text(verbatim: "\(viewModel.test)")
             //Text(verbatim: "\(viewModel.dataCollectionHandler.count)")
@@ -72,6 +80,7 @@ struct DefaultDataCollectionView: View {
         
     }
     
+    // not currently used
     func buttonOnPress(action: DefaultDataCollectionAction) {
         switch action {
         case .startRecording: self.viewModel.startRecording()
@@ -80,6 +89,7 @@ struct DefaultDataCollectionView: View {
         case .saveRecording: self.viewModel.saveRecording()
         case .printPackets: self.viewModel.printPackets()
         case .loadData: self.viewModel.loadData()
+        case .clearLocalData: self.viewModel.clearLocalData()
         }
     }
     

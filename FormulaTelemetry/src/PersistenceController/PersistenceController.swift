@@ -27,6 +27,7 @@ class PersistenceController1: TestPersistenceControllerInterface {
 //                fatalError("Error: \(error.localizedDescription)")
 //            }
 //        }
+        getData()
     }
     
     func getData() {
@@ -58,7 +59,7 @@ class PersistenceController1: TestPersistenceControllerInterface {
             let newEntity = Packet(context: container.viewContext)
             let header = entry.header
             
-            newEntity.frameIdentifier = Int16(header.frameIdentifier)
+            newEntity.frameIdentifier = Int64(header.frameIdentifier)
             newEntity.gameMajorVersion = Int16(header.gameMajorVersion)
             newEntity.gameMinorVersion = Int16(header.gameMinorVersion)
             newEntity.packetFormat = Int64(header.packetFormat)
@@ -71,17 +72,17 @@ class PersistenceController1: TestPersistenceControllerInterface {
             
             newEntity.data = entry.data
             
-            print("header format ", header.packetFormat)
-            print("converted format ", newEntity.packetFormat)
+            //print("header format ", header.packetFormat)
+            //print("converted format ", newEntity.packetFormat)
             return newEntity
         }
-        do {
-            try container.viewContext.save()
-            //getData() //to update the published variable to reflect this change
-        } catch let error {
-            print("Error: \(error)")
-        }
-        //saveData()
+//        do {
+//            try container.viewContext.save()
+//            //getData() //to update the published variable to reflect this change
+//        } catch let error {
+//            print("Error: \(error)")
+//        }
+        saveData()
     }
     
     func addData(dataToSave: Data) {
@@ -91,9 +92,25 @@ class PersistenceController1: TestPersistenceControllerInterface {
     func saveData() {
         do {
             try container!.viewContext.save()
-            //getData() //to update the published variable to reflect this change
+            getData() //to update the published variable to reflect this change
         } catch let error {
             print("Error: \(error)")
+        }
+    }
+    
+    func deleteLocalData() {
+        log("PC - deleteLocalData")
+        self.savedData.forEach { obj in
+            container?.viewContext.delete(obj)
+        }
+        
+        do {
+            try container?.viewContext.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
     

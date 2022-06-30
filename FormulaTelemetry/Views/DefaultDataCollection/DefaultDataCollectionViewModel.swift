@@ -18,6 +18,7 @@ protocol DefaultDataCollectionViewModelInterface: ObservableObject {
     func saveRecording()
     func deleteRecording()
     func printPackets()
+    func clearLocalData()
     func getBuffersAsData() -> [Data]
 }
 /*
@@ -54,6 +55,7 @@ class DefaultDataCollectionViewModel: DefaultDataCollectionViewModelInterface {
         case .saveRecording: saveRecording()
         case .printPackets: printPackets()
         case .loadData: loadData()
+        case .clearLocalData: clearLocalData()
         }
     }
     
@@ -100,6 +102,11 @@ class DefaultDataCollectionViewModel: DefaultDataCollectionViewModelInterface {
         self.dataCollectionHandler.loadFromUserDefaults()
     }
     
+    func clearLocalData() {
+        self.persistenceController.deleteLocalData()
+
+    }
+    
     func getBuffersAsData() -> [Data] {
         return []
     }
@@ -107,7 +114,6 @@ class DefaultDataCollectionViewModel: DefaultDataCollectionViewModelInterface {
 
 //TODO: these functions should be moved
 extension DefaultDataCollectionViewModel {
-    
     func convertToData(buffers: [ByteBuffer]) -> [Data] {
         return buffers
             .compactMap({ byteBuffer -> [UInt8]? in
