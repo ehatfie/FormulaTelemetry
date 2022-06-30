@@ -26,41 +26,41 @@ struct DefaultDataCollectionView: View {
     // view model
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        VStack {
+        VStack(alignment: .center) {
             HStack(alignment: .top, spacing: 100) {
                 Button(action: {
-                    buttonOnPress(action: .startRecording)
+                    viewModel.buttonOnPress(action: .startRecording)
                 }, label: {
                     Text("Start Recording")
                 })
                 
                 Button(action: {
-                    buttonOnPress(action: .stopRecording)
+                    viewModel.buttonOnPress(action: .stopRecording)
                 }, label: {
                     Text("StopRecording")
                 })
                 
                 Button(action: {
-                    buttonOnPress(action: .saveRecording)
+                    viewModel.buttonOnPress(action: .saveRecording)
                 }, label: {
                     Text("Save Recording")
                 })
                 
                 Button(action: {
-                    buttonOnPress(action: .deleteRecording)
+                    viewModel.buttonOnPress(action: .deleteRecording)
                 }, label: {
                     Text("Delete Recording")
                 })
             }
             HStack(alignment: .top, spacing: 100) {
                 Button(action: {
-                    buttonOnPress(action: .printPackets)
+                    viewModel.buttonOnPress(action: .printPackets)
                 }, label: {
                     Text("Print Packets")
                 })
                 
                 Button(action: {
-                    buttonOnPress(action: .loadData)
+                    viewModel.buttonOnPress(action: .loadData)
                 }, label: {
                     Text("Load Data")
                 })

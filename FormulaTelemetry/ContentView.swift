@@ -7,14 +7,16 @@
 
 import SwiftUI
 import CoreData
+import NIOCore
+import F12020TelemetryPackets
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var manager: Manager
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \ReceivedPacket.sessionTime, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var items: FetchedResults<ReceivedPacket>
     
     
     //@ObservedObject var manager: Manager = Manager()
@@ -52,6 +54,7 @@ struct ContentView: View {
                 } label: {
                     //Text(item.timestamp!, formatter: itemFormatter)
                     Text("item two")
+                    
                 }
                 
 
@@ -63,16 +66,38 @@ struct ContentView: View {
                     }
                 }
             }
+            List{
+                ForEach(items) { item in
+                    Text(doSomething(with: item))
+                }
+            }
             
             DefaultDataCollectionView()
-                .environmentObject(DefaultDataCollectionViewModel())
+                .environmentObject(DefaultDataCollectionViewModel(pc: self.manager.persistenceController))
             
         }.onAppear(perform: setup)
+    }
+    
+    func doSomething(with packet: ReceivedPacket) -> String {
+        guard let data = packet.data else { return "no data" }
+        
+        var buffer = ByteBuffer(bytes: data)
+//        guard let header = PacketHeader(data: &buffer) else {
+//            print("no header")
+//            return "no header"
+//        }
+        
+        
+        let packetType = PacketType(rawValue: Int(packet.packetType)) ?? .none
+        
+        
+        return packetType.shortDescription
     }
     
     
     private func setup() {
         self.manager.start()
+        print(self.items.count)
     }
     
     private func getText() -> String {

@@ -12,11 +12,18 @@ import F12020TelemetryPackets
 
 protocol DataCollectionHandlerInterface: ObservableObject {
     var cancellable: AnyCancellable? { get set }
+    
+    func printPackets()
+    func saveToUserDefaults()
+    func loadFromUserDefaults()
+    func getBuffersAsData() -> [Data]
 }
 
 class DataCollectionHandler: ObservableObject {
     @Published var receivedData: [ByteBuffer] = []
     @Published var count: Int = 0
+    
+    var sessionData: SessionData? = nil
     
     let key = "TEST_KEY"
     
@@ -31,6 +38,8 @@ class DataCollectionHandler: ObservableObject {
         self.cancellable = pub
             .receive(on: RunLoop.current)
             .sink(receiveValue: didReceiveData(_:))
+        
+        
     }
     
     func didReceiveData(_ buffer: ByteBuffer) {
@@ -72,25 +81,6 @@ class DataCollectionHandler: ObservableObject {
         })
         
        saveToUserDefaults(data: foo)
-        
-        
-//        let dataObjects = self.receivedData.compactMap({ byteBuffer -> Data? in
-//            var bufferCopy = byteBuffer
-//            guard let byteArray = bufferCopy.readBytes(length: bufferCopy.readableBytes) else {
-//                print("couldnt unpack")
-//                return nil
-//            }
-//
-//            return Data(byteArray)
-//        })
-//
-//        do {
-//
-//        } catch let err {
-//            print("Save error ", err)
-//        }
-//        print("saving to ", dataUrl)
-        
     }
     
     func saveToUserDefaults(data: [[UInt8]]) {
@@ -118,6 +108,19 @@ class DataCollectionHandler: ObservableObject {
         self.receivedData = byteBuffers
         self.count = receivedData.count
         print("byteBuffer count ", byteBuffers.count)
+    }
+    
+    func getBuffersAsData() -> [Data] {
+        return convertToData(buffers: self.receivedData)
+    }
+    
+    // TODO: this can go into a helper class
+    private func convertToData(buffers: [ByteBuffer]) -> [Data] {
+        return buffers
+            .compactMap({ byteBuffer -> [UInt8]? in
+                var bufferCopy = byteBuffer
+                return bufferCopy.readBytes(length: bufferCopy.readableBytes)
+            }).map{ Data($0 )}
     }
 }
 

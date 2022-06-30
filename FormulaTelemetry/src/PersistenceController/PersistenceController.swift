@@ -39,6 +39,55 @@ class PersistenceController1: TestPersistenceControllerInterface {
         }
     }
     
+    func addData(dataToSave: [Data]) {
+        guard let container = self.container else {
+            print("no container")
+            return
+        }
+        let entities = dataToSave.map ({ data in
+            let newEntity = ReceivedPacket(context: container.viewContext)
+            newEntity.data = data
+        })
+        
+        saveData()
+    }
+    
+    func addData(dataToSave: [PacketEntry]) {
+        guard let container = self.container else {
+            print("no container")
+            return
+        }
+        
+        let entities = dataToSave.map { entry -> ReceivedPacket in
+            let newEntity = ReceivedPacket(context: container.viewContext)
+            let header = entry.header
+            
+            newEntity.frameIdentifier = Int16(header.frameIdentifier)
+            newEntity.gameMajorVersion = Int16(header.gameMajorVersion)
+            newEntity.gameMinorVersion = Int16(header.gameMinorVersion)
+            newEntity.packetFormat = Int64(header.packetFormat)
+            newEntity.packetType = Int16(header.packetId)
+            newEntity.packetVersion = Int16(header.packetVersion)
+            newEntity.playerCarIndex = Int16(header.playerCarIndex)
+            newEntity.secondaryPlayerCarIndex = Int16(header.secondaryPlayerCarIndex)
+            newEntity.sessionId = Int64(header.sessionUID)
+            newEntity.sessionTime = header.sessionTime
+            
+            newEntity.data = entry.data
+            
+            print("header format ", header.packetFormat)
+            print("converted format ", newEntity.packetFormat)
+            return newEntity
+        }
+        do {
+            try container.viewContext.save()
+            //getData() //to update the published variable to reflect this change
+        } catch let error {
+            print("Error: \(error)")
+        }
+        //saveData()
+    }
+    
     func addData(dataToSave: Data) {
         let newEntity = ReceivedPacket(context: container!.viewContext)
         newEntity.data = dataToSave
@@ -48,9 +97,10 @@ class PersistenceController1: TestPersistenceControllerInterface {
     func saveData() {
         do {
             try container!.viewContext.save()
-            getData() //to update the published variable to reflect this change
+            //getData() //to update the published variable to reflect this change
         } catch let error {
             print("Error: \(error)")
         }
     }
+    
 }
