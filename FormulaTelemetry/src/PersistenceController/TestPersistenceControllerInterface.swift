@@ -13,9 +13,9 @@ import Combine
 protocol TestPersistenceControllerInterface: ObservableObject {
     var container: NSPersistentContainer? { get }
     
-    var savedData: [ReceivedPacket] { get }
-    var savedDataPublished: Published<[ReceivedPacket]> { get }
-    var savedDataPublisher: Published<[ReceivedPacket]>.Publisher { get }
+    var savedData: [Packet] { get }
+    var savedDataPublished: Published<[Packet]> { get }
+    var savedDataPublisher: Published<[Packet]>.Publisher { get }
     
     func getData()
     func addData(dataToSave: Data)

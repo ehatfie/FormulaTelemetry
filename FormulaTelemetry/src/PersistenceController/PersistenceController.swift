@@ -13,10 +13,10 @@ import F12020TelemetryPackets
 class PersistenceController1: TestPersistenceControllerInterface {
     let container: NSPersistentContainer?
     
-    @Published var savedData: [ReceivedPacket] = []
+    @Published var savedData: [Packet] = []
     
-    var savedDataPublished: Published<[ReceivedPacket]> { _savedData }
-    var savedDataPublisher: Published<[ReceivedPacket]>.Publisher { $savedData }
+    var savedDataPublished: Published<[Packet]> { _savedData }
+    var savedDataPublisher: Published<[Packet]>.Publisher { $savedData }
     
     init(_ container: NSPersistentContainer) {
         self.container = container
@@ -30,7 +30,7 @@ class PersistenceController1: TestPersistenceControllerInterface {
     }
     
     func getData() {
-        let request = NSFetchRequest<ReceivedPacket>(entityName: "ReceivedPacket") //exact name as in the CoreData file
+        let request = NSFetchRequest<Packet>(entityName: "Packet") //exact name as in the CoreData file
         
         do {
             try savedData = (container?.viewContext.fetch(request))!
@@ -58,8 +58,8 @@ class PersistenceController1: TestPersistenceControllerInterface {
             return
         }
         
-        let entities = dataToSave.map { entry -> ReceivedPacket in
-            let newEntity = ReceivedPacket(context: container.viewContext)
+        let entities = dataToSave.map { entry -> Packet in
+            let newEntity = Packet(context: container.viewContext)
             let header = entry.header
             
             newEntity.frameIdentifier = Int16(header.frameIdentifier)

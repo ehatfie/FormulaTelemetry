@@ -14,9 +14,9 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var manager: Manager
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \ReceivedPacket.sessionTime, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Packet.sessionTime, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<ReceivedPacket>
+    private var items: FetchedResults<Packet>
     
     
     //@ObservedObject var manager: Manager = Manager()
@@ -66,11 +66,15 @@ struct ContentView: View {
                     }
                 }
             }
-            List{
-                ForEach(items) { item in
-                    Text(doSomething(with: item))
+            
+            VStack {
+                List{
+                    ForEach(items) { item in
+                        Text(doSomething(with: item))
+                    }
                 }
             }
+
             
             DefaultDataCollectionView()
                 .environmentObject(DefaultDataCollectionViewModel(pc: self.manager.persistenceController))
@@ -78,7 +82,7 @@ struct ContentView: View {
         }.onAppear(perform: setup)
     }
     
-    func doSomething(with packet: ReceivedPacket) -> String {
+    func doSomething(with packet: Packet) -> String {
         guard let data = packet.data else { return "no data" }
         
         var buffer = ByteBuffer(bytes: data)
