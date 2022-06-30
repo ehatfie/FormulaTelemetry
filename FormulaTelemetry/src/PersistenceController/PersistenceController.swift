@@ -13,10 +13,10 @@ import F12020TelemetryPackets
 class PersistenceController1: TestPersistenceControllerInterface {
     let container: NSPersistentContainer?
     
-    @Published var savedData: [ReceivedPacket] = []
+    @Published var savedData: [Packet] = []
     
-    var savedDataPublished: Published<[ReceivedPacket]> { _savedData }
-    var savedDataPublisher: Published<[ReceivedPacket]>.Publisher { $savedData }
+    var savedDataPublished: Published<[Packet]> { _savedData }
+    var savedDataPublisher: Published<[Packet]>.Publisher { $savedData }
     
     init(_ container: NSPersistentContainer) {
         self.container = container
@@ -27,10 +27,11 @@ class PersistenceController1: TestPersistenceControllerInterface {
 //                fatalError("Error: \(error.localizedDescription)")
 //            }
 //        }
+        getData()
     }
     
     func getData() {
-        let request = NSFetchRequest<ReceivedPacket>(entityName: "ReceivedPacket") //exact name as in the CoreData file
+        let request = NSFetchRequest<Packet>(entityName: "Packet") //exact name as in the CoreData file
         
         do {
             try savedData = (container?.viewContext.fetch(request))!
@@ -39,10 +40,53 @@ class PersistenceController1: TestPersistenceControllerInterface {
         }
     }
     
-    func addData(dataToSave: Data) {
-        let newEntity = ReceivedPacket(context: container!.viewContext)
-        newEntity.data = dataToSave
+    func addData(dataToSave: [Data]) {
+        guard let container = self.container else {
+            print("no container")
+            return
+        }
+
         saveData()
+    }
+    
+    func addData(dataToSave: [PacketEntry]) {
+        guard let container = self.container else {
+            print("no container")
+            return
+        }
+        
+        let entities = dataToSave.map { entry -> Packet in
+            let newEntity = Packet(context: container.viewContext)
+            let header = entry.header
+            
+            newEntity.frameIdentifier = Int64(header.frameIdentifier)
+            newEntity.gameMajorVersion = Int16(header.gameMajorVersion)
+            newEntity.gameMinorVersion = Int16(header.gameMinorVersion)
+            newEntity.packetFormat = Int64(header.packetFormat)
+            newEntity.packetType = Int16(header.packetId)
+            newEntity.packetVersion = Int16(header.packetVersion)
+            newEntity.playerCarIndex = Int16(header.playerCarIndex)
+            newEntity.secondaryPlayerCarIndex = Int16(header.secondaryPlayerCarIndex)
+            newEntity.sessionId = Int64(header.sessionUID)
+            newEntity.sessionTime = header.sessionTime
+            
+            newEntity.data = entry.data
+            
+            //print("header format ", header.packetFormat)
+            //print("converted format ", newEntity.packetFormat)
+            return newEntity
+        }
+//        do {
+//            try container.viewContext.save()
+//            //getData() //to update the published variable to reflect this change
+//        } catch let error {
+//            print("Error: \(error)")
+//        }
+        saveData()
+    }
+    
+    func addData(dataToSave: Data) {
+        
     }
     
     func saveData() {
@@ -53,4 +97,21 @@ class PersistenceController1: TestPersistenceControllerInterface {
             print("Error: \(error)")
         }
     }
+    
+    func deleteLocalData() {
+        log("PC - deleteLocalData")
+        self.savedData.forEach { obj in
+            container?.viewContext.delete(obj)
+        }
+        
+        do {
+            try container?.viewContext.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+    }
+    
 }

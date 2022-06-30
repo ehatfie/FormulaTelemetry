@@ -15,6 +15,10 @@
 		BA8A2DA0286929700059B219 /* TestPersistenceControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A2D9F286929700059B219 /* TestPersistenceControllerInterface.swift */; };
 		BA8A2DA3286955220059B219 /* LapSummaryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A2DA2286955220059B219 /* LapSummaryHandler.swift */; };
 		BA8A2DA5286958480059B219 /* LapTelemetryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A2DA4286958480059B219 /* LapTelemetryData.swift */; };
+		BA8A2DAA286BAC340059B219 /* DefaultDataCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A2DA9286BAC340059B219 /* DefaultDataCollectionView.swift */; };
+		BA8A2DAC286BAC5C0059B219 /* DefaultDataCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A2DAB286BAC5C0059B219 /* DefaultDataCollectionViewModel.swift */; };
+		BA8A2DAE286BB3EB0059B219 /* DataCollectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A2DAD286BB3EB0059B219 /* DataCollectionHandler.swift */; };
+		BA8A2DB1286E5E470059B219 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A2DB0286E5E470059B219 /* Logger.swift */; };
 		BA8B8FBD273CCDC800D63413 /* FormulaTelemetryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FBC273CCDC800D63413 /* FormulaTelemetryApp.swift */; };
 		BA8B8FBF273CCDC800D63413 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B8FBE273CCDC800D63413 /* ContentView.swift */; };
 		BA8B8FC1273CCDCA00D63413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8B8FC0273CCDCA00D63413 /* Assets.xcassets */; };
@@ -64,6 +68,10 @@
 		BA8A2D9F286929700059B219 /* TestPersistenceControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPersistenceControllerInterface.swift; sourceTree = "<group>"; };
 		BA8A2DA2286955220059B219 /* LapSummaryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapSummaryHandler.swift; sourceTree = "<group>"; };
 		BA8A2DA4286958480059B219 /* LapTelemetryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTelemetryData.swift; sourceTree = "<group>"; };
+		BA8A2DA9286BAC340059B219 /* DefaultDataCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataCollectionView.swift; sourceTree = "<group>"; };
+		BA8A2DAB286BAC5C0059B219 /* DefaultDataCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataCollectionViewModel.swift; sourceTree = "<group>"; };
+		BA8A2DAD286BB3EB0059B219 /* DataCollectionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionHandler.swift; sourceTree = "<group>"; };
+		BA8A2DB0286E5E470059B219 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		BA8B8FB9273CCDC800D63413 /* FormulaTelemetry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormulaTelemetry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8B8FBC273CCDC800D63413 /* FormulaTelemetryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaTelemetryApp.swift; sourceTree = "<group>"; };
 		BA8B8FBE273CCDC800D63413 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -126,6 +134,7 @@
 				BAC617742757009D00036676 /* SessionDataHandler.swift */,
 				BAC6177C2762E0C000036676 /* MotionDataHandler.swift */,
 				BA93E7E7277D15210028DB9C /* TelemetryDataHandler.swift */,
+				BA8A2DAD286BB3EB0059B219 /* DataCollectionHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -155,6 +164,23 @@
 				BA8A2DA4286958480059B219 /* LapTelemetryData.swift */,
 			);
 			path = LapSummaryHandler;
+			sourceTree = "<group>";
+		};
+		BA8A2DA6286BAC000059B219 /* DefaultDataCollection */ = {
+			isa = PBXGroup;
+			children = (
+				BA8A2DA9286BAC340059B219 /* DefaultDataCollectionView.swift */,
+				BA8A2DAB286BAC5C0059B219 /* DefaultDataCollectionViewModel.swift */,
+			);
+			path = DefaultDataCollection;
+			sourceTree = "<group>";
+		};
+		BA8A2DAF286E5E390059B219 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BA8A2DB0286E5E470059B219 /* Logger.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		BA8B8FB0273CCDC800D63413 = {
@@ -231,6 +257,7 @@
 		BA8B8FFD273CDD0D00D63413 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				BA8A2DAF286E5E390059B219 /* Utilities */,
 				BA8A2D982869262E0059B219 /* PersistenceController */,
 				BA13063F273F6CD900C587EF /* Handlers */,
 				BA8B8FFB273CD42F00D63413 /* Manager.swift */,
@@ -275,6 +302,7 @@
 		BAC617782762DD1300036676 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BA8A2DA6286BAC000059B219 /* DefaultDataCollection */,
 				BA973BC5277D253800D113C3 /* Lap */,
 				BA93E7E6277D14D50028DB9C /* Session */,
 				BA93E7E1277D147B0028DB9C /* Telemetry */,
@@ -434,12 +462,16 @@
 				BA8B8FC6273CCDCA00D63413 /* Persistence.swift in Sources */,
 				BA8B8FBF273CCDC800D63413 /* ContentView.swift in Sources */,
 				BA8A2DA3286955220059B219 /* LapSummaryHandler.swift in Sources */,
+				BA8A2DAC286BAC5C0059B219 /* DefaultDataCollectionViewModel.swift in Sources */,
 				BA8A2D9C286927780059B219 /* TelemetryDataInterface.swift in Sources */,
 				BA130641273F6CE900C587EF /* LapDataHandler.swift in Sources */,
+				BA8A2DB1286E5E470059B219 /* Logger.swift in Sources */,
 				BA8B9003273CDF0100D63413 /* UDPHandler.swift in Sources */,
 				BA8B8FFF273CDD4200D63413 /* Session.swift in Sources */,
 				BA8B8FC9273CCDCA00D63413 /* FormulaTelemetry.xcdatamodeld in Sources */,
 				BA8B9001273CDEBA00D63413 /* UDPClient.swift in Sources */,
+				BA8A2DAE286BB3EB0059B219 /* DataCollectionHandler.swift in Sources */,
+				BA8A2DAA286BAC340059B219 /* DefaultDataCollectionView.swift in Sources */,
 				BA8A2D9A2869263D0059B219 /* PersistenceController.swift in Sources */,
 				BAC6177D2762E0C000036676 /* MotionDataHandler.swift in Sources */,
 				BA93E7E5277D14B70028DB9C /* TelemetryView.swift in Sources */,

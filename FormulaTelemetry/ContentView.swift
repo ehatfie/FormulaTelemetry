@@ -7,14 +7,16 @@
 
 import SwiftUI
 import CoreData
+import NIOCore
+import F12020TelemetryPackets
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var manager: Manager
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Packet.sessionTime, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var items: FetchedResults<Packet>
     
     
     //@ObservedObject var manager: Manager = Manager()
@@ -23,20 +25,39 @@ struct ContentView: View {
         NavigationView {
             List {
                 NavigationLink {
-                    VStack {
-                        Text(verbatim: "connected: \(manager.isConnected)")
-                    }
+                    
+                } label: {
+                    //Text(item.timestamp!, formatter: itemFormatter)
+                    Text("Data Recording Tab")
+                }
+                
+                NavigationLink {
+                    HStack {
+                        VStack {
+                            LapDataView(source: $manager.lapDataHandler)
+                        }.border(.red, width: 1)
+                        VStack {
+                            Text(verbatim: "awaiting connection: \(manager.isConnected)")
+                            
+                            SessionView(sessionData: manager.$sessionDataHandler.sessionData)
+                            TelemetryView(telemetryData: manager.$telemetryDataHandler.lastTelemetryData, telemetryStuff: $manager.lapSummaryHandler)
+                        }.border(.green, width: 1)
+                    }.border(.blue, width: 1)
                 } label: {
                     //Text(item.timestamp!, formatter: itemFormatter)
                     Text("item one")
                 }
+                
                 NavigationLink {
                     Text("status: \(manager.client.isConnected == true ? "connected" : "disconnected")")
                     Text(verbatim: "Item at 2")
                 } label: {
                     //Text(item.timestamp!, formatter: itemFormatter)
                     Text("item two")
+                    
                 }
+                
+
             }
             .toolbar {
                 ToolbarItem {
@@ -45,28 +66,50 @@ struct ContentView: View {
                     }
                 }
             }
-           
-                HStack {
-                    VStack {
-                        LapDataView(source: $manager.lapDataHandler)
-                    }.border(.red, width: 1)
-                    VStack {
-                        Text(verbatim: "awaiting connection: \(manager.isConnected)")
-                        
-                        
-                        SessionView(sessionData: manager.$sessionDataHandler.sessionData)
-                        TelemetryView(telemetryData: manager.$telemetryDataHandler.lastTelemetryData, telemetryStuff: $manager.lapSummaryHandler)
-                    }.border(.green, width: 1)
-                }.border(.blue, width: 1)
             
+            VStack {
+                HStack {
+                    Text(verbatim: "\(self.items.count)")
+                    Button(action: {
+                        deleteAllItems()
+                    }, label: {
+                        Text("Delete Local Data")
+                    })
+                }.padding(.top, 10)
+                List{
+                    ForEach(items) { item in
+                        Text(doSomething(with: item))
+                    }
+                }
+            }
 
             
+            DefaultDataCollectionView()
+                .environmentObject(DefaultDataCollectionViewModel(pc: self.manager.persistenceController))
+            
         }.onAppear(perform: setup)
+    }
+    
+    func doSomething(with packet: Packet) -> String {
+        guard let data = packet.data else { return "no data" }
+        
+        var buffer = ByteBuffer(bytes: data)
+//        guard let header = PacketHeader(data: &buffer) else {
+//            print("no header")
+//            return "no header"
+//        }
+        
+        
+        let packetType = PacketType(rawValue: Int(packet.packetType)) ?? .none
+        
+        
+        return "\(packetType.shortDescription) "  + "\(packet.frameIdentifier) " + "\(packet.sessionTime)"
     }
     
     
     private func setup() {
         self.manager.start()
+        print(self.items.count)
     }
     
     private func getText() -> String {
@@ -106,6 +149,19 @@ struct ContentView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+        }
+    }
+    
+    private func deleteAllItems() {
+        withAnimation {
+            items.forEach(viewContext.delete)
+        }
+        
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
 }
