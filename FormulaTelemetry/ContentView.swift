@@ -68,6 +68,14 @@ struct ContentView: View {
             }
             
             VStack {
+                HStack {
+                    Text(verbatim: "\(self.items.count)")
+                    Button(action: {
+                        deleteAllItems()
+                    }, label: {
+                        Text("Delete Local Data")
+                    })
+                }.padding(.top, 10)
                 List{
                     ForEach(items) { item in
                         Text(doSomething(with: item))
@@ -95,7 +103,7 @@ struct ContentView: View {
         let packetType = PacketType(rawValue: Int(packet.packetType)) ?? .none
         
         
-        return packetType.shortDescription
+        return "\(packetType.shortDescription) "  + "\(packet.frameIdentifier) " + "\(packet.sessionTime)"
     }
     
     
@@ -141,6 +149,19 @@ struct ContentView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+        }
+    }
+    
+    private func deleteAllItems() {
+        withAnimation {
+            items.forEach(viewContext.delete)
+        }
+        
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
 }
