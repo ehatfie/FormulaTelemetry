@@ -41,13 +41,22 @@ class UDPHandler: ChannelInboundHandler {
             self.dataPublisher.send(byteBuffer)
        // }
         
+        processBytes(byteBuffer: &byteBuffer)
         
+        /**
+         Things we need to list lap results/info
+            - LapData (lap times)
+            - CarTelemetry (car inputs)
+            - CarStatus (ers info)
+            - EventData?
+         */
+    }
+    
+    func processBytes(byteBuffer: inout ByteBuffer) {
         guard let header = PacketHeader(data: &byteBuffer) else { return }
         
         let packet = PacketInfo(format: header.packetFormat, version: header.packetVersion, type: header.packetId)
-        //print("packet type \(packet.packetType.shortDescription)")
-        //print("header \(header)")
-        
+
         switch packet.packetType {
         case .LapData: lapDataPublisher.send(LapDataPacket(header: header, data: &byteBuffer))
         case .CarSetups: carSetupsPublisher.send(CarSetupPacket(header: header, data: &byteBuffer))
@@ -64,13 +73,5 @@ class UDPHandler: ChannelInboundHandler {
         default:
             print("packet type \(packet.packetType.shortDescription)")
         }
-        
-        /**
-         Things we need to list lap results/info
-            - LapData (lap times)
-            - CarTelemetry (car inputs)
-            - CarStatus (ers info)
-            - EventData?
-         */
     }
 }
